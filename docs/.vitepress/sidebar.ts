@@ -75,7 +75,7 @@ export function autoIndexMarkdown(docsDir?: string): string {
     return items
       .map((item) => {
         if (item.link) {
-          return `${indent}- [${item.text}](${item.link})`
+          return `${indent}- [${item.text}](${encodeURI(item.link)})`
         }
         if (item.items && item.items.length) {
           const children = render(item.items, depth + 1)
@@ -90,4 +90,3 @@ export function autoIndexMarkdown(docsDir?: string): string {
 
   return render(items, 0)
 }
-export const AUTO_INDEX_PLACEHOLDER = '<!--AUTO-SIDEBAR-INDEX-->'

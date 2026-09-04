@@ -1,15 +1,21 @@
 import { defineConfig, type Plugin } from 'vitepress'
-import { autoSidebar, autoIndexMarkdown, AUTO_INDEX_PLACEHOLDER } from './sidebar'
+import fs from 'node:fs'
+import path from 'node:path'
+import { autoSidebar, autoIndexMarkdown } from './sidebar'
+
+const INDEX_HEADER = `## udsu
+
+## Содержание
+
+`
 
 function autoIndexPlugin(): Plugin {
   return {
     name: 'vitepress-auto-index',
     enforce: 'pre',
-    transform(code, id) {
-      if (id.endsWith('index.md') && code.includes(AUTO_INDEX_PLACEHOLDER)) {
-        return code.replace(AUTO_INDEX_PLACEHOLDER, autoIndexMarkdown())
-      }
-      return null
+    buildStart() {
+      const indexPath = path.resolve(__dirname, '../index.md')
+      fs.writeFileSync(indexPath, INDEX_HEADER + autoIndexMarkdown() + '\n')
     },
   }
 }
@@ -22,7 +28,7 @@ export default defineConfig({
   },
   themeConfig: {
     sidebar: {
-      '/': { base: '/', items: autoSidebar() },
+      '/': { items: autoSidebar() },
     },
     lastUpdated: true,
   },
