@@ -5,7 +5,9 @@ export default defineConfig({
   title: 'UDSU',
   description: 'Documentation',
   themeConfig: {
-    sidebar: autoSidebar(),
+    sidebar: {
+      '/': { base: '/', items: autoSidebar() },
+    },
     lastUpdated: true,
   },
 })
