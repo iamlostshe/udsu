@@ -65,3 +65,29 @@ export function autoSidebar(docsDir?: string): SidebarItem[] {
   const root = docsDir ?? path.resolve(__dirname, '..')
   return generateSidebarItems(root, '')
 }
+
+export function autoIndexMarkdown(docsDir?: string): string {
+  const root = docsDir ?? path.resolve(__dirname, '..')
+  const items = generateSidebarItems(root, '')
+
+  function render(items: SidebarItem[], depth: number): string {
+    const indent = '  '.repeat(depth)
+    return items
+      .map((item) => {
+        if (item.link) {
+          return `${indent}- [${item.text}](${item.link})`
+        }
+        if (item.items && item.items.length) {
+          const children = render(item.items, depth + 1)
+          const bullet = '  '.repeat(depth)
+          return `${bullet}- **${item.text}**\n${children}`
+        }
+        return ''
+      })
+      .filter(Boolean)
+      .join('\n')
+  }
+
+  return render(items, 0)
+}
+export const AUTO_INDEX_PLACEHOLDER = '<!--AUTO-SIDEBAR-INDEX-->'

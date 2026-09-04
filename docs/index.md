@@ -1,14 +1,5 @@
----
-layout: home
+## udsu
 
-hero:
-  name: UDSU
-  text: Documentation
-  tagline: Minimal VitePress setup
-  actions:
-    - theme: brand
-      text: Get Started
-      link: /guide/getting-started
----
+## Содержание
 
-## Quick Start
+<!--AUTO-SIDEBAR-INDEX-->
