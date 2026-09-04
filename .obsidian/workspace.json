@@ -27,32 +27,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Деловая коммуникация на русском языке/Вводный урок.md",
+                "file": "docs/index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Вводный урок"
+              "title": "index"
             }
           }
         ],
         "currentTab": 1
-      },
-      {
-        "id": "fa41dce1686c56fb",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "337916b49b952e9d",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -216,8 +200,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "337916b49b952e9d",
+  "active": "de5fc35b1c438b69",
   "lastOpenFiles": [
+    "docs/Деловая коммуникация на русском языке/Вводный урок.md",
+    "docs/Деловая коммуникация на русском языке/_info.md",
+    "docs/Деловая коммуникация на русском языке",
     "Деловая коммуникация на русском языке/Вводный урок.md",
     "Деловая коммуникация на русском языке/_info.md",
     "Welcome.md",
